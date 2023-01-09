@@ -108,19 +108,19 @@ function hoverToShowImage(img) {
 
     //hover
     for (let i = 0; i < stars.length; i++) {
-        // stars[i].addEventListener("mouseover", function (e) {
-        //     for (let j = 0; j < i + 1; j++) {
-        //         stars[j].classList.add("rating-star-full")
-        //         fieldTitle.value = reviewTitle[j]
-        //     }
-        // })
-        // // no hover
+        stars[i].addEventListener("mouseover", function (e) {
+            stars.forEach(star => {
+                star.classList.remove("rating-star-full")
+            })
+            for (let j = 0; j < i + 1; j++) {
+                stars[j].classList.add("rating-star-full")
+                fieldTitle.value = reviewTitle[j]
+            }
+        })
+        // no hover
         // stars[i].addEventListener("mouseout", function (e) {
 
-        //     for (let j = 0; j < i + 1; j++) {
-        //         stars[j].classList.remove("rating-star-full")
-        //         fieldTitle.value = ""
-        //     }
+            
         // })
 
         stars[i].addEventListener("click", function () {
