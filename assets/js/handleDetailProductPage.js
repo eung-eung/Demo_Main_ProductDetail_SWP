@@ -114,13 +114,13 @@ function hoverToShowImage(img) {
             })
             for (let j = 0; j < i + 1; j++) {
                 stars[j].classList.add("rating-star-full")
-                fieldTitle.value = reviewTitle[j]
+                fieldTitle.innerHTML = reviewTitle[j]
             }
         })
         // no hover
         // stars[i].addEventListener("mouseout", function (e) {
 
-            
+
         // })
 
         stars[i].addEventListener("click", function () {
