@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .chat-bubble {
+            display: block;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            z-index: 1000;
+            background-color: #0785f2;
+            background-position: center 17px;
+            background-size: 30px 30px;
+            background-repeat: no-repeat;
+            color: #fff;
+            text-align: center;
+            box-shadow: 2px 2px 19px 1px rgb(0 0 0 / 10%);
+        }
+
+        #talkjs-container {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin: 0;
+            height: 500px;
+            margin-left: 60px;
+        }
+
+        #talkjs-container.open {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- minified snippet to load TalkJS without delaying your page -->
+    <script>
+        (function (t, a, l, k, j, s) {
+            s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
+                ; k = t.Promise; t.Talk = {
+                    v: 3, ready: {
+                        then: function (f) {
+                            if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
+                                .push([f])
+                        }, catch: function () { return k && new k() }, c: l
+                    }
+                };
+        })(window, document, []);
+    </script>
+
+    <!-- container element in which TalkJS will display a chat UI -->
+    <div id="talkjs-container">
+        <i>Loading chat...</i>
+    </div>
+    <a class="chat-bubble">
+    </a>
+
+</body>
+<script>
+    document.querySelector(".chat-bubble").addEventListener("click", function () {
+        document.querySelector("#talkjs-container").classList.toggle("open")
+        this.classList.toggle("open")
+
+    })
+    Talk.ready.then(function () {
+        var me = new Talk.User({
+            id: '654321',
+            name: 'Store',
+            email: 'Sebastian@example.com',
+            photoUrl: 'https://www.thesprucepets.com/thmb/3ABKoAPm0Hu4PcWsDH1giawq7ck=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/chinese-dog-breeds-4797219-hero-2a1e9c5ed2c54d00aef75b05c5db399c.jpg',
+            welcomeMessage: 'Hey there! How are you? :-)',
+        });
+        window.talkSession = new Talk.Session({
+            appId: 'tvFE2lNQ',
+            me: me,
+        });
+        var other = new Talk.User({
+            id: '123456',
+            name: 'Thien',
+            email: 'boyvip5231@gmail.com',
+            photoUrl: 'https://talkjs.com/images/avatar-1.jpg',
+            welcomeMessage: 'Hey, how can I help?',
+        });
+
+        var conversation = talkSession.getOrCreateConversation(
+            Talk.oneOnOneId(me, other)
+        );
+        conversation.setParticipant(me);
+        conversation.setParticipant(other);
+
+        var inbox = talkSession.createInbox({ selected: conversation });
+        inbox.mount(document.getElementById('talkjs-container'));
+    });
+</script>
+
+</html>
