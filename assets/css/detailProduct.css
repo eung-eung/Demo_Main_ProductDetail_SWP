@@ -107,10 +107,7 @@ body {
     margin: 0 10px;
 }
 
-.contact-inner>i {
-    font-size: 25px;
-    color: var(--header-color-hover);
-}
+
 
 .contact-container {
     position: absolute;

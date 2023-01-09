@@ -30,6 +30,7 @@ body {
 .container {
     width: 1200px;
     margin: 0 auto;
+
 }
 
 .header-top-content {
@@ -97,6 +98,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    color: var(--header-color);
 }
 
 .contact-inner>div {
@@ -744,4 +746,25 @@ body {
     background-position: center;
 
 
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--background-header-center);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

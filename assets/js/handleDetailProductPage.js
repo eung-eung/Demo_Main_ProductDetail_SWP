@@ -1,15 +1,18 @@
 function increaseValue() {
+
     var value = parseInt(document.querySelector(".form-input").value, 10)
-    value = isNaN(value) ? 0 : value;
     value++
+    value = isNaN(value) ? 1 : value;
+
     document.querySelector(".form-input").value = value;
 }
 
 function decreaseValue() {
     var value = parseInt(document.querySelector(".form-input").value, 10)
-    value = isNaN(value) ? 0 : value
-    value < 1 ? value = 1 : value
     value--
+    value = isNaN(value) ? 1 : value
+    value < 1 ? value = 1 : value
+
     document.querySelector(".form-input").value = value
 }
 
