@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 10px;
-    margin: 30px 0;
+    /* margin: 30px 0; */
 }
 
 .store-header-name {
@@ -33,4 +33,18 @@
 .store-overview {
     flex: 1;
     text-align: center;
+    /* color: ; */
+}
+
+.store-overview i {
+    color: orange;
+}
+
+.store-overview a {
+    text-decoration: none;
+    color: orange;
+}
+
+.store-overview span {
+    font-weight: 600;
 }

@@ -718,6 +718,8 @@ body {
 .tab a {
     text-decoration: none;
     padding: 20px;
+    color: var(--header-color);
+    font-weight: 600;
 }
 
 .list-header-tab {
