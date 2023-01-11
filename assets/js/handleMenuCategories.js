@@ -30,7 +30,7 @@ function isOpenMenuCategoriesItems() {
     if (loadmoreButton.classList.contains("open")) {
         loadmoreButton.innerHTML = `
         <div class="menu-categories-item-action">
-         <i class="fa-solid fa-circle-plus"></i>
+         <i class="fa-solid fa-circle-minus"></i>
                                             <span class="more-view">Close Categories</span>
                                         </div>
         `
